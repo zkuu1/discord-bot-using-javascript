@@ -17,15 +17,30 @@ client.on('ready', (c) => {
     console.log(`Logged in as ${c.user.tag}!`);
 })
 
-client.on ('messageCreate', (message) => {
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
 
-   if (message.author.bot){
-        return;
-   };
+    if (interaction.commandName === 'hello') {
+        await interaction.reply('Hello! im Zkuu ^-^');
+    console.log(interaction);
+    }
 
-   if (message.content === 'hello') {
-       message.reply('Hello ! Im Zkuu Nice To Meet You ^-^');
-   }
+    if (interaction.commandName === 'waifu') {
+        await interaction.reply('Encore Desu ^-^ !');
+    console.log(interaction);
+    }
+
+    if (interaction.commandName === 'add') {
+       const num1 = interaction.options.get('first-number')?.value;
+       const num2 = interaction.options.get('second-number')?.value;
+
+       interaction.reply(`The sum is ${num1 + num2}`);
+
+       console.log(num1, num2);
+    console.log(interaction);
+    }
+
+    
 });
 
 client.login(config.token);
