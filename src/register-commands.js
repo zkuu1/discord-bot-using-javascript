@@ -15,6 +15,10 @@ const commands = [
         description: 'My Waifu'
     },
     {
+        name: 'embed',
+        description: 'Send a Embed'
+    },
+    {
         name: 'add',
         description: 'Add two numbers',
         options: [

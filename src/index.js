@@ -1,4 +1,4 @@
-import { Client, IntentsBitField } from 'discord.js';
+import { Client, IntentsBitField, EmbedBuilder } from 'discord.js';
 import fs from 'fs';
 
 
@@ -40,7 +40,54 @@ client.on('interactionCreate', async (interaction) => {
     console.log(interaction);
     }
 
-    
+    if (interaction.commandName === 'embed') {
+        const embed = new EmbedBuilder()
+        .setTitle('Embed Title')
+        .setDescription('Embed Description')
+        .setColor('Random')
+        .addFields({
+            name: 'Field 1', 
+            value: 'Some Random Value' , 
+            inline: true},
+        {
+            name: 'Field 2', 
+            value: 'Some Random Value' , 
+            inline: true},
+        {
+            name: 'Field 3', 
+            value: 'Some Random Value' , 
+            inline: true},
+        {
+
+        })
+
+        interaction.reply({ embeds: [embed] });
+    }
+});
+
+client.on('messageCreate', (message) => {
+    if (message.content === 'embed') {
+        const embed = new EmbedBuilder()
+        .setTitle('Embed Title')
+        .setDescription('Embed Description')
+        .setColor('Random')
+        .addFields({
+            name: 'Field 1', 
+            value: 'Some Random Value' , 
+            inline: true},
+        {
+            name: 'Field 2', 
+            value: 'Some Random Value' , 
+            inline: true},
+        {
+            name: 'Field 3', 
+            value: 'Some Random Value' , 
+            inline: true},
+        {
+        });
+
+        message.reply({ embeds: [embed] });
+    }
 });
 
 client.login(config.token);
