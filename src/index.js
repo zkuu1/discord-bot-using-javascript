@@ -36,6 +36,9 @@ client.on('interactionCreate', async (interaction) => {
     if (interaction.commandName === 'wuwa id') {
         await interaction.reply('80090293');
     }
+    if (interaction.commandName === 'wuwa ids') {
+        await interaction.reply('8009029333');
+    }
     if (interaction.commandName === 'Genshin Id') {
         await interaction.reply('80348938');
     }
