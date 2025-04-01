@@ -33,6 +33,13 @@ client.on('interactionCreate', async (interaction) => {
         console.log(interaction);
     }
 
+    if (interaction.commandName === 'wuwa id') {
+        await interaction.reply('80090293');
+    }
+    if (interaction.commandName === 'Genshin Id') {
+        await interaction.reply('80348938');
+    }
+
     if (interaction.commandName === 'add') {
         const num1 = interaction.options.getNumber('first-number');
         const num2 = interaction.options.getNumber('second-number');
